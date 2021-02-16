@@ -1,3 +1,21 @@
-.App {
+body {
   text-align: center;
+  padding: 1rem;
+}
+
+input[type="button"],
+button {
+  margin: 0 0.25rem;
+}
+
+input[type="button"].correct {
+  background-color: green;
+}
+
+input[type="button"].incorrect {
+  background-color: red;
+}
+
+input[type="button"][disabled] {
+  opacity: 60%;
 }
