@@ -15,7 +15,3 @@ input[type="button"].correct {
 input[type="button"].incorrect {
   background-color: red;
 }
-
-input[type="button"][disabled] {
-  opacity: 60%;
-}
