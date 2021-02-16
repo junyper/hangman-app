@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/hangman-app/static/css/main.6479eb4b.chunk.css",
+    "main.css": "/hangman-app/static/css/main.a1455b3e.chunk.css",
     "main.js": "/hangman-app/static/js/main.c44f33ed.chunk.js",
     "main.js.map": "/hangman-app/static/js/main.c44f33ed.chunk.js.map",
     "runtime-main.js": "/hangman-app/static/js/runtime-main.c23be62d.js",
@@ -10,13 +10,13 @@
     "static/js/3.534a7cb9.chunk.js": "/hangman-app/static/js/3.534a7cb9.chunk.js",
     "static/js/3.534a7cb9.chunk.js.map": "/hangman-app/static/js/3.534a7cb9.chunk.js.map",
     "index.html": "/hangman-app/index.html",
-    "static/css/main.6479eb4b.chunk.css.map": "/hangman-app/static/css/main.6479eb4b.chunk.css.map",
+    "static/css/main.a1455b3e.chunk.css.map": "/hangman-app/static/css/main.a1455b3e.chunk.css.map",
     "static/js/2.3e731d18.chunk.js.LICENSE.txt": "/hangman-app/static/js/2.3e731d18.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c23be62d.js",
     "static/js/2.3e731d18.chunk.js",
-    "static/css/main.6479eb4b.chunk.css",
+    "static/css/main.a1455b3e.chunk.css",
     "static/js/main.c44f33ed.chunk.js"
   ]
 }
