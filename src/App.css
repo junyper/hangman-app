@@ -3,6 +3,14 @@ body {
   padding: 1rem;
 }
 
+input[type="button"] {
+  font-size: 1.5rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
 input[type="button"],
 button {
   margin: 0 0.25rem;
@@ -14,4 +22,8 @@ input[type="button"].correct {
 
 input[type="button"].incorrect {
   background-color: red;
+}
+
+.Word {
+  font-size: 2rem;
 }
