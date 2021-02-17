@@ -38,15 +38,22 @@ function App() {
       .catch(error => console.error(error));
   }, [setGame]);
 
+  const resetGame = useCallback(() => {
+    setIncorrect([]);
+    setCorrect([]);
+    loadGameData();
+  }, [setIncorrect, setCorrect, loadGameData]);
+
   useEffect(() => { loadGameData(); }, [loadGameData]);
 
   useEffect(() => {
     const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') resetGame();
       guessLetter(e.key.toUpperCase());
     };
     window.addEventListener('keyup', handleKeyUp);
     return () => window.removeEventListener('keyup', handleKeyUp);
-  }, [guessLetter]);
+  }, [guessLetter, resetGame]);
 
   const letters = answer.map(char => {
     if (correct.includes(char) || incorrect.length >= MAX_INCORRECT) {
@@ -64,14 +71,8 @@ function App() {
     setCorrect([...answer]);
   };
 
-  const resetGame = () => {
-    setIncorrect([]);
-    setCorrect([]);
-    loadGameData();
-  };
-
-  const lostGame = incorrect.length >= MAX_INCORRECT;
-  const gameIsInProgress = letters.includes('_') && !lostGame;
+  const gameIsLost = incorrect.length >= MAX_INCORRECT;
+  const gameIsInProgress = letters.includes('_') && !gameIsLost;
 
   return (game ?
     <div>
@@ -81,7 +82,7 @@ function App() {
       { gameIsInProgress ?
         <span>Can you guess the word?</span> :
         <span>
-          { lostGame ?
+          { gameIsLost ?
             <b style={{ color: 'red' }}>Oops! </b> :
             <b style={{ color: 'green' }}>Yay! </b>
           }
@@ -99,7 +100,7 @@ function App() {
             key={letter}
             onClick={handleLetterClick}
             value={letter}
-            disabled={correct.includes(letter) || incorrect.includes(letter) || lostGame}
+            disabled={correct.includes(letter) || incorrect.includes(letter) || gameIsLost}
             className={classNames({
               'correct': correct.includes(letter),
               'incorrect': incorrect.includes(letter)
