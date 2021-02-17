@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => { loadGameData(); }, [loadGameData]);
 
-  return (data ? <Game data={data} reloadGame={loadGameData} /> : <div>Loading game data...</div>);
+  return (data ? <Game data={data} reloadGame={loadGameData} /> : <div className="Loading">Loading game data...</div>);
 }
 
 export default App;
