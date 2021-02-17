@@ -44,6 +44,10 @@ function App() {
     loadGameData();
   }, [setIncorrect, setCorrect, loadGameData]);
 
+  const showTheWord = useCallback(() => {
+    setCorrect([...answer]);
+  }, [setCorrect, answer]);
+
   useEffect(() => { loadGameData(); }, [loadGameData]);
 
   useEffect(() => {
@@ -53,7 +57,7 @@ function App() {
     };
     window.addEventListener('keyup', handleKeyUp);
     return () => window.removeEventListener('keyup', handleKeyUp);
-  }, [guessLetter, resetGame]);
+  }, [guessLetter, resetGame, showTheWord]);
 
   const letters = answer.map(char => {
     if (correct.includes(char) || incorrect.length >= MAX_INCORRECT) {
@@ -65,10 +69,6 @@ function App() {
 
   const handleLetterClick = (e: React.MouseEvent<HTMLInputElement>) => {
     guessLetter(e.currentTarget.value);
-  };
-
-  const showTheWord = () => {
-    setCorrect([...answer]);
   };
 
   const gameIsLost = incorrect.length >= MAX_INCORRECT;
@@ -110,7 +110,7 @@ function App() {
       }
       </p>
       <button type="button" onClick={showTheWord}>Show the word</button>
-      <button type="button" onClick={resetGame}>Try a new word</button>
+      <button type="button" onClick={resetGame}>Try a new word  (ESC key)</button>
     </div>
   : <div>Loading game data...</div>);
 }

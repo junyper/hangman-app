@@ -1,14 +1,29 @@
 body {
   text-align: center;
   padding: 1rem;
+  font-family: "Comic Sans MS", sans-serif;
 }
 
 input[type="button"] {
   font-size: 1.5rem;
+  font-family: "Comic Sans MS", sans-serif;
+  background: transparent;
+  border-radius: 15rem 0.9375rem 15rem 0.9375rem/0.9375rem 15rem 0.9375rem 15rem;
+  border: solid 0.3125rem rgb(0, 0, 0);
 }
 
 button {
   padding: 0.5rem;
+  font-family: "Comic Sans MS", sans-serif;
+  background: transparent;
+  border: dashed 0.2rem rgb(0, 0, 0);
+  border-radius: 15rem 0.9375rem 15rem 0.9375rem/0.9375rem 15rem 0.9375rem 15rem;
+  outline: none;
+}
+
+input[type="button"]:focus,
+button:focus {
+  background-color: yellow;
 }
 
 input[type="button"],
