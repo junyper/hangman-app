@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import './App.css';
 
-const MAX_INCORRECT = 5;
+const MAX_INCORRECT = 8;
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const API_URL = 'https://random-words-api.vercel.app/word';
 
@@ -75,10 +75,56 @@ function App() {
   const gameIsInProgress = letters.includes('_') && !gameIsLost;
 
   return (game ?
-    <div>
-      <p>
+    <div className="Game">
+      <div className="Status" aria-hidden="true">
+        <div className="Gallows" >
+          <div className="Man">
+            <div className={classNames({
+              'head': true,
+              'hidden': incorrect.length < (MAX_INCORRECT - 7)
+            })}></div>
+            <div className={classNames({
+              'torso': true,
+              'hidden': incorrect.length < (MAX_INCORRECT - 6)
+            })}></div>
+            <div className={classNames({
+              'arm': true,
+              'left': true,
+              'hidden': incorrect.length < (MAX_INCORRECT - 5)
+            })}></div>
+            <div className={classNames({
+              'arm': true,
+              'right': true,
+              'hidden': incorrect.length < (MAX_INCORRECT - 4)
+            })}></div>
+            <div className={classNames({
+              'leg': true,
+              'left': true,
+              'hidden': incorrect.length < (MAX_INCORRECT - 3)
+            })}></div>
+            <div className={classNames({
+              'foot': true,
+              'left': true,
+              'hidden': incorrect.length < (MAX_INCORRECT - 2)
+            })}></div>
+            <div className={classNames({
+              'leg': true,
+              'right': true,
+              'hidden': incorrect.length < (MAX_INCORRECT - 1)
+            })}></div>
+            <div className={classNames({
+              'foot': true,
+              'right': true,
+              'hidden': incorrect.length < MAX_INCORRECT
+            })}></div>
+          </div>
+        </div>
+      </div>
+
+      <p className="Definition">
         Definition: {game.definition}
       </p>
+
       { gameIsInProgress ?
         <span>Can you guess the word?</span> :
         <span>
@@ -92,6 +138,7 @@ function App() {
       <p className="Word">
         {letters}
       </p>
+
       <p>
       {
         ALPHABET.map(letter =>
@@ -102,6 +149,7 @@ function App() {
             value={letter}
             disabled={correct.includes(letter) || incorrect.includes(letter) || gameIsLost}
             className={classNames({
+              'Letter': true,
               'correct': correct.includes(letter),
               'incorrect': incorrect.includes(letter)
             })}
@@ -109,6 +157,7 @@ function App() {
         )
       }
       </p>
+
       <button type="button" onClick={showTheWord}>Show the word</button>
       <button type="button" onClick={resetGame}>Try a new word  (ESC key)</button>
     </div>
