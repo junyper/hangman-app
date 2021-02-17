@@ -16,6 +16,10 @@ function App() {
   const [incorrect, setIncorrect] = useState<string[]>([]);
   const [game, setGame] = useState<Game | undefined>();
 
+  useEffect(() => {
+    loadGameData();
+  }, []);
+
   const loadGameData = async () => {
     setGame(undefined)
     try {
@@ -27,16 +31,13 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    loadGameData();
-  }, []);
-
   if (!game) return <div>Loading game data...</div>
 
   const { word, definition } = game;
   const alphabet = ALPHABET.split('');
-  const characters = word.split('').map(char => char.toUpperCase());
-  const letters = characters.map(char => {
+  const answer = word.split('').map(char => char.toUpperCase());
+
+  const letters = answer.map(char => {
     if (correct.includes(char) || incorrect.length >= MAX_INCORRECT) {
       return char;
     } else {
@@ -46,10 +47,9 @@ function App() {
 
   const handleLetterClick = (e: React.MouseEvent<HTMLInputElement>) => {
     const char = e.currentTarget.value;
-
     if (incorrect.length === MAX_INCORRECT) {
       return;
-    } else if (characters.includes(char)) {
+    } else if (answer.includes(char)) {
       setCorrect([...correct, char])
     } else {
       setIncorrect([...incorrect, char])
@@ -67,7 +67,7 @@ function App() {
   };
 
   const showTheWord = () => {
-    setCorrect([...characters]);
+    setCorrect([...answer]);
   };
 
   const resetGame = () => {
@@ -82,8 +82,14 @@ function App() {
         Definition: {definition}
       </p>
       { letters.includes('_') && incorrect.length < MAX_INCORRECT?
-        <span>Can you guess the word in <b>{MAX_INCORRECT - incorrect.length}</b> guesses?</span> :
-        <span>The word is:</span>
+        <span>Can you guess the word?</span> :
+        <span>
+          { incorrect.length >= MAX_INCORRECT ?
+            <b style={{ color: 'red' }}>Oops!</b> :
+            <b style={{ color: 'green'}}>Yay!</b>
+          }
+          The word is:
+        </span>
       }
       <p className="Word">
         {letters}
