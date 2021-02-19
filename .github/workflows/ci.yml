@@ -12,10 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build and run tests
+    - name: Run tests
       uses: actions/setup-node@v2
       with:
-        node-version: 15.8.0
+        node-version: 14.15.5
     - run: npm ci
-    - run: npm run build
     - run: npm test
