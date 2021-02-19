@@ -94,7 +94,7 @@ export function Game(props: GameProps): JSX.Element {
             </span>
           )}
 
-          <p className="Word">{letters}</p>
+          <p className={styles.Word}>{letters}</p>
 
           <p>
             {ALPHABET.map((letter) => (

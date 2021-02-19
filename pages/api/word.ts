@@ -45,8 +45,7 @@ const resolvers = {
   Query: {
     word: async (_parent, _args, { dataSources }) => {
       const word = await dataSources.wordnikAPI.getRandomWord();
-
-      const [definition] = await Promise.all([dataSources.wordnikAPI.getDefinition(word)]);
+      const definition = await dataSources.wordnikAPI.getDefinition(word);
 
       return {
         name: word,
