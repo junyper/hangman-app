@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useCallback } from 'react';
 import useSWR from 'swr';
 import { Game } from '../components/Game';
@@ -31,5 +32,13 @@ export default function Index(): JSX.Element {
     mutate();
   }, [mutate]);
 
-  return <Game data={data} error={error} reload={handleReload} />;
+  return (
+    <div>
+      <Head>
+        <title>Hangman Game</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Game data={data} error={error} reload={handleReload} />
+    </div>
+  );
 }
