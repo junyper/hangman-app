@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import useSWR from 'swr';
-import { Game } from './components/Game';
+import { Game } from '../components/Game';
 
 const fetcher = (query) =>
   fetch('/api/word', {

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { GameData, Word } from '../../types';
+import { GameData, Word } from '../types';
 import styles from './Game.module.css';
 import { MAX_INCORRECT, Status } from './Status';
 
