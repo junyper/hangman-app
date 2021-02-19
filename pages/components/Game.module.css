@@ -1,8 +1,12 @@
-.Game {
-  text-align: center;
+.Game,
+.Loading {
   padding: 1rem;
+  background-color: white;
   font-family: "Comic Sans MS", sans-serif;
-  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  margin: 1rem auto;
 }
 
 .Game * {
@@ -13,7 +17,7 @@
   all: inherit;
   display: inline-block;
   padding: 0.5rem;
-  font-family: "Comic Sans MS", sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   background: transparent;
   border: dashed 0.2rem rgb(0, 0, 0);
   border-radius: 15rem 0.9375rem 15rem 0.9375rem/0.9375rem 15rem 0.9375rem 15rem;
@@ -21,7 +25,7 @@
 }
 
 .Game .Definition {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .Letter {
@@ -29,19 +33,19 @@
   display: inline-block;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
-  font-family: "Comic Sans MS", sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   border-radius: 15rem 0.9375rem 15rem 0.9375rem/0.9375rem 15rem 0.9375rem 15rem;
   border: solid 0.3125rem rgb(0, 0, 0);
-}
-
-.Letter:focus,
-.Game button:focus {
-  background-color: yellow;
 }
 
 .Letter,
 .Game button {
   margin: 0 0.25rem;
+}
+
+.Letter:focus,
+.Game button:focus {
+  background-color: yellow;
 }
 
 .Letter.correct {

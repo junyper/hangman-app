@@ -12,8 +12,8 @@
   position: relative;
 }
 
-.Gallows:after {
-  content: " ";
+.Gallows::after {
+  content: ' ';
   display: block;
   width: 0.3125rem;
   height: 1.25rem;
