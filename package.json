@@ -1,6 +1,12 @@
 {
   "name": "hangman-app",
   "version": "1.0.0",
+  "homepage": "https://hangman-app-tan.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junyper/hangmain-app.git"
+  },
+  "author": "Jennifer Stern",
   "scripts": {
     "dev": "next",
     "build": "next build",
